@@ -1,0 +1,50 @@
+services:
+  db:
+    image: mysql:oraclelinux9
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpw
+      MYSQL_DATABASE: don_de_sangbd
+      MYSQL_USER: appuser                  
+      MYSQL_PASSWORD: mypassword 
+    ports:
+      - "3306:3306"                         
+    volumes:
+      - db-data:/var/lib/mysql
+
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 5s
+      timeout: 5s
+      retries: 10        
+
+  # Backend
+  backend:
+    image: backsouth:1.0               
+    restart: always
+    environment:
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_USER: appuser
+      DB_PASSWORD: mypassword 
+      DB_NAME: don_de_sangbd
+    ports:
+      - "5500:5500"                   
+    depends_on:
+      db:
+        condition: service_healthy
+
+
+  # Frontend
+  frontend:
+    image: frontsouth:1.0 
+    restart: always
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+
+# Volumes pour persistance
+volumes:
+  db-data:
+
