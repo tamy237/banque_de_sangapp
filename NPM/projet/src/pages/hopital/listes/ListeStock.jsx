@@ -10,7 +10,7 @@ const ListeStock = () => {
   useEffect(() => {
     const fetchStocks = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/stock', {
+        const response = await fetch('http://localhost:5500/api/stock', {
           headers: {
             Authorization: 'Bearer ' + localStorage.getItem('token'),
           },
@@ -24,7 +24,7 @@ const ListeStock = () => {
 
     const fetchCentres = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/centresroutes', {
+        const response = await fetch('http://localhost:5500/api/centresroutes', {
           headers: {
             Authorization: 'Bearer ' + localStorage.getItem('token'),
           },

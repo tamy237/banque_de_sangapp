@@ -18,20 +18,20 @@ export default function Hpersonel() {
     try {
       const token = localStorage.getItem("token");
 
-      const res1 = await fetch("http://localhost:5000/api/stock/statsstock", {
+      const res1 = await fetch("http://localhost:5500/api/stock/statsstock", {
         headers: { Authorization: "Bearer " + token },
       });
       if (!res1.ok) throw new Error("Erreur stats stock");
       const { total: stock } = await res1.json();
       // console.log(res1);
 
-      const res2 = await fetch("http://localhost:5000/api/collectes/statscollectes", {
+      const res2 = await fetch("http://localhost:5500/api/collectes/statscollectes", {
         headers: { Authorization: "Bearer " + token },
       });
       if (!res2.ok) throw new Error("Erreur stats collectes");
       const { total: collectes } = await res2.json();
       // console.log(res2);
-      const res3 = await fetch("http://localhost:5000/api/blood_request/statsdemandes", {
+      const res3 = await fetch("http://localhost:5500/api/blood_request/statsdemandes", {
         headers: { Authorization: "Bearer " + token },
       });
       if (!res3.ok) throw new Error("Erreur stats demandes");

@@ -13,7 +13,7 @@ useEffect(() => {
   const fetchBloodRequest = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:5000/api/blood_request/all', {
+      const response = await fetch('http://localhost:5500/api/blood_request/all', {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -41,7 +41,7 @@ useEffect(() => {
 
   const changerStatut = async (id, nouveauStatut) => {
     try {
-      const res = await fetch(`http://localhost:5000/api/blood_request/${id}/statut`, {
+      const res = await fetch(`http://localhost:5500/api/blood_request/${id}/statut`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",

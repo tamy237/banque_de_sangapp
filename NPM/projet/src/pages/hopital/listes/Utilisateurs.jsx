@@ -12,14 +12,14 @@ export default function Utilisateurs() {
   const itemsPerPage = 5;
 
   const fetchUsers = async () => {
-    const res = await fetch('http://localhost:5000/api/auth');
+    const res = await fetch('http://localhost:5500/api/auth');
     const data = await res.json();
     setUsers(data);
   };
 
   const deleteUser = async (id) => {
     if (!window.confirm('Confirmer la suppression ?')) return;
-    await fetch(`http://localhost:5000/api/auth/${id}`, { method: 'DELETE' });
+    await fetch(`http://localhost:5500/api/auth/${id}`, { method: 'DELETE' });
     fetchUsers();
   };
 

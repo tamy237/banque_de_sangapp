@@ -23,7 +23,7 @@ function CentresMap() {
 
   const fetchCentres = async () => {
   try {
-    const res = await fetch("http://localhost:5000/api/centres", {
+    const res = await fetch("http://localhost:5500/api/centres", {
       headers: { Authorization: "Bearer " + localStorage.getItem("token") },
     });
     const data = await res.json();
@@ -38,7 +38,7 @@ function CentresMap() {
   useEffect(() => {
     // console.log("Token utilisé :", localStorage.getItem("token"));
 
-    fetch("http://localhost:5000/api/centresroutes", {
+    fetch("http://localhost:5500/api/centresroutes", {
       headers: {
         Authorization: "Bearer " + localStorage.getItem("token"),
       },
@@ -57,7 +57,7 @@ const handleDelete = async (id) => {
   if (!confirm2) return;
 
   try {
-    const res = await fetch(`http://localhost:5000/api/centresroutes/${id}`, {
+    const res = await fetch(`http://localhost:5500/api/centresroutes/${id}`, {
       method: "DELETE",
       headers: {
         Authorization: "Bearer " + localStorage.getItem("token"),

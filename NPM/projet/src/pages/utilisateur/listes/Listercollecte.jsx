@@ -23,7 +23,7 @@ function Listercollcte() {
 
   const fetchCentres = async () => {
   try {
-    const res = await fetch("http://localhost:5000/api/centres", {
+    const res = await fetch("http://localhost:5500/api/centres", {
       headers: { Authorization: "Bearer " + localStorage.getItem("token") },
     });
     const data = await res.json();
@@ -38,7 +38,7 @@ function Listercollcte() {
   useEffect(() => {
     // console.log("Token utilisé :", localStorage.getItem("token"));
 
-    fetch("http://localhost:5000/api/centresroutes", {
+    fetch("http://localhost:5500/api/centresroutes", {
       headers: {
         Authorization: "Bearer " + localStorage.getItem("token"),
       },

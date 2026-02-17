@@ -15,7 +15,7 @@ function ListeCollectes() {
 
   const fetchCollectes = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/collectes', {
+      const response = await fetch('http://localhost:5500/api/collectes', {
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${token}`,  // Ajout du token dans le header
@@ -39,7 +39,7 @@ function ListeCollectes() {
 
   const fetchCentres = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/centresroutes', {
+      const response = await fetch('http://localhost:5500/api/centresroutes', {
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${token}`,  // Ajout du token dans le header
@@ -72,7 +72,7 @@ function ListeCollectes() {
     if (!window.confirm('Voulez-vous vraiment supprimer cette collecte ?')) return;
 
     try {
-      const response = await fetch(`http://localhost:5000/api/collectes/${id}`, {
+      const response = await fetch(`http://localhost:5500/api/collectes/${id}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
